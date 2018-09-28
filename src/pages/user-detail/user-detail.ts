@@ -10,10 +10,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserDetailPage {
 
+	public name: string = '';
+
 	constructor( public navCtrl: NavController, public navParams: NavParams ) {}
 
 	ionViewDidLoad() {
-		console.log( 'ionViewDidLoad UserDetailPage' );
+		this.name = this.navParams.get( 'user' ).name;
 	}
 
 }
