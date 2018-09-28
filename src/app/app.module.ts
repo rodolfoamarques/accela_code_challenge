@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from './../pages/home/home';
 import { UserDetailPage } from './../pages/user-detail/user-detail';
-import { UsersApiProvider } from '../providers/users-api/users-api';
+import { UsersApiProvider } from './../providers/users-api/users-api';
 
 
 
@@ -31,7 +31,7 @@ import { UsersApiProvider } from '../providers/users-api/users-api';
 		StatusBar,
 		SplashScreen,
 		{ provide: ErrorHandler, useClass: IonicErrorHandler },
-    UsersApiProvider
+		UsersApiProvider
 	]
 })
 export class AppModule {}
