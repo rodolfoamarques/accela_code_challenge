@@ -8,7 +8,7 @@ import { User, UsersApiProvider } from './../../providers/users-api/users-api';
 
 @Component({
 	selector: 'page-home',
-	templateUrl: 'home.html'
+	templateUrl: './home.html'
 })
 export class HomePage {
 

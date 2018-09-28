@@ -6,7 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
 	selector: 'page-user-detail',
-	templateUrl: 'user-detail.html',
+	templateUrl: './user-detail.html'
 })
 export class UserDetailPage {
 
