@@ -15,7 +15,9 @@ export class UserDetailPage {
 	constructor( public navCtrl: NavController, public navParams: NavParams ) {}
 
 	ionViewDidLoad() {
-		this.name = this.navParams.get( 'user' ).name;
+		const user = this.navParams.get( 'user' );
+
+		this.name = user.name;
 	}
 
 }
