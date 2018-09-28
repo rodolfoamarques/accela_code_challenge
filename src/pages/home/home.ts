@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { UserDetailPage } from './../user-detail/user-detail';
+
+
+
 @Component({
 	selector: 'page-home',
 	templateUrl: 'home.html'
@@ -19,8 +23,8 @@ export class HomePage {
 		];
 	}
 
-	viewItem(){
-
+	showDetails( user ) {
+		this.navCtrl.push( UserDetailPage, {user: user} );
 	}
 
 }
