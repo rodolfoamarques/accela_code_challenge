@@ -1,5 +1,7 @@
 {
-	"name": "accela-users",
-	"integrations": {},
-	"type": "ionic-angular"
+  "name": "accela-users",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }
