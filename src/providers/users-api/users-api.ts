@@ -44,8 +44,14 @@ export class UsersApiProvider {
 
 	constructor( public http: HttpClient ) {}
 
-	public getUsers(): Observable<User[]> {
-		return this.http.get( this.apiURL + '/users' )
+	public getUsers( start: number = undefined, limit: number = undefined ): Observable<User[]> {
+		let uri = this.apiURL + '/users';
+		uri += (start || limit) ? '?' : '';
+		uri += start ? '_start='+start : ''; // when start=0, the condition returns false. however, in the context of this application, this is not considered relevant as a bug since the server returns users from 0 regardless of _start being provided or being provided with value 0
+		uri += (start && limit) ? '&' : '';
+		uri += limit ? '_limit='+limit : '';
+
+		return this.http.get( uri )
 			.map( (users: User[]) => {
 				return users.map( user => new User(user) );
 			});
