@@ -1,3 +1,33 @@
 page-user-detail {
 
+	ion-label {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	ion-card {
+		position: relative;
+		margin: 0 !important;
+		width: 100% !important;
+		height: 100%;
+
+		ion-card-header {
+			position: relative;
+			z-index: 10;
+		}
+
+		ion-card-content {
+			position: relative;
+			z-index: 10;
+		}
+
+		.card-footer {
+			z-index: 10;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
 }

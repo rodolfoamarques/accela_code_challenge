@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { User } from './../../providers/users-api/users-api';
+
 
 
 @IonicPage()
@@ -10,14 +12,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserDetailPage {
 
-	public name: string = '';
+	private user: User;
 
 	constructor( public navCtrl: NavController, public navParams: NavParams ) {}
 
 	ionViewDidLoad() {
-		const user = this.navParams.get( 'user' );
+		this.user = this.navParams.get( 'user' );
+	}
 
-		this.name = user.name;
+	phoneCall() {
+		window.open( 'tel:'+this.user.phone, '_system' );
+	}
+
+	mailTo() {
+		window.open( 'mailto:'+this.user.email, '_system' );
+	}
+
+	openUrl() {
+		window.open( 'https://'+this.user.website, '_system' );
 	}
 
 }

@@ -1,8 +1,47 @@
 <ion-header>
 	<ion-navbar>
-		<ion-title>{{ name }}</ion-title>
+		<ion-title>{{ user?.name }}</ion-title>
 	</ion-navbar>
 </ion-header>
 
 
-<ion-content padding></ion-content>
+<ion-content padding>
+	<ion-card>
+
+		<ion-card-header no-padding padding-left>
+			<ion-item>
+				<ion-avatar item-start *ngIf="user?.profilePic"><img src="user?.profilePic"></ion-avatar>
+				<ion-avatar item-start *ngIf="!user?.profilePic"><img src="https://openclipart.org/download/122107/defaultprofile.svg"></ion-avatar>
+				<h1>{{ user?.name }}</h1>
+				<p>{{ user?.username }}</p>
+			</ion-item>
+		</ion-card-header>
+
+		<ion-card-content>
+			<ion-item>
+				<ion-icon name="paper" item-start large></ion-icon>
+				<h1>{{ user?.company.name }}</h1>
+				<p>{{ user?.company.catchPhrase }}</p>
+			</ion-item>
+
+			<ion-item>
+				<ion-icon name="home" item-start large ></ion-icon>
+				<h1>{{ user?.address.street }}, {{ user?.address.suite }}</h1>
+				<p>{{ user?.address.zipcode }}, {{ user?.address.city }}</p>
+			</ion-item>
+		</ion-card-content>
+
+		<ion-row class="card-footer">
+			<ion-col col-4>
+				<button ion-button icon-start large block clear (click)="phoneCall()"><ion-icon name="phone-portrait"></ion-icon>Call</button>
+			</ion-col>
+			<ion-col col-4>
+				<button ion-button icon-start large block clear (click)="mailTo()"><ion-icon name="mail"></ion-icon>Email</button>
+			</ion-col>
+			<ion-col col-4>
+				<button ion-button icon-start large block clear (click)="openUrl()"><ion-icon name="globe"></ion-icon>Website</button>
+			</ion-col>
+		</ion-row>
+
+	</ion-card>
+</ion-content>
