@@ -20,28 +20,40 @@
 		<div id="floating-panel"><div #map id="map"></div></div>
 
 		<ion-card-content>
-			<ion-item>
-				<ion-icon name="paper" item-start large></ion-icon>
-				<h1>{{ user?.company.name }}</h1>
-				<p>{{ user?.company.catchPhrase }}</p>
+			<ion-item no-padding>
+				<ion-row>
+					<ion-col col-2 class="hide-sm" no-padding>
+						<button ion-button icon-only large clear no-margin class="fill"><ion-icon name="home"></ion-icon></button>
+					</ion-col>
+					<ion-col>
+						<ion-row><h1>{{ user?.address.street }}, {{ user?.address.suite }}</h1></ion-row>
+						<ion-row><p>{{ user?.address.zipcode }}, {{ user?.address.city }}</p></ion-row>
+					</ion-col>
+				</ion-row>
 			</ion-item>
 
-			<ion-item>
-				<ion-icon name="home" item-start large ></ion-icon>
-				<h1>{{ user?.address.street }}, {{ user?.address.suite }}</h1>
-				<p>{{ user?.address.zipcode }}, {{ user?.address.city }}</p>
+			<ion-item no-padding>
+				<ion-row>
+					<ion-col col-2 class="hide-sm" no-padding>
+						<button ion-button icon-only large clear no-margin class="fill"><ion-icon name="paper"></ion-icon></button>
+					</ion-col>
+					<ion-col>
+						<ion-row><h1>{{ user?.company.name }}</h1></ion-row>
+						<ion-row><p>{{ user?.company.catchPhrase }}</p></ion-row>
+					</ion-col>
+				</ion-row>
 			</ion-item>
 		</ion-card-content>
 
 		<ion-row class="card-footer">
 			<ion-col col-4>
-				<button ion-button icon-start large block clear (click)="phoneCall()"><ion-icon name="phone-portrait"></ion-icon>Call</button>
+				<button ion-button icon-start large block clear (click)="phoneCall()"><ion-icon name="phone-portrait"></ion-icon><span class="hide-sm">Call</span></button>
 			</ion-col>
 			<ion-col col-4>
-				<button ion-button icon-start large block clear (click)="mailTo()"><ion-icon name="mail"></ion-icon>Email</button>
+				<button ion-button icon-start large block clear (click)="mailTo()"><ion-icon name="mail"></ion-icon><span class="hide-sm">Email</span></button>
 			</ion-col>
 			<ion-col col-4>
-				<button ion-button icon-start large block clear (click)="openUrl()"><ion-icon name="globe"></ion-icon>Website</button>
+				<button ion-button icon-start large block clear (click)="openUrl()"><ion-icon name="globe"></ion-icon><span class="hide-sm">Web</span></button>
 			</ion-col>
 		</ion-row>
 
