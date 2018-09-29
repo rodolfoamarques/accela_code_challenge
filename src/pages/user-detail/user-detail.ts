@@ -21,12 +21,20 @@ export class UserDetailPage {
 
 	constructor( public navCtrl: NavController, public navParams: NavParams ) {}
 
-	ionViewDidLoad() {
+	public ionViewDidLoad() {
 		this.user = this.navParams.get( 'user' );
-    	this.initMap();
+		this.initMap();
 	}
 
-	initMap() {
+	public ionViewWillEnter(): void {
+		this.navCtrl.swipeBackEnabled = true;
+	}
+
+	public ionViewDidLeave(): void {
+		this.navCtrl.swipeBackEnabled = false;
+	}
+
+	private initMap() {
 		const mapOptions = {
 			center: { lat: Number(this.user.address.geo.lat), lng: Number(this.user.address.geo.lng) },
 			disableDefaultUI: true,
@@ -42,15 +50,15 @@ export class UserDetailPage {
 		this.map = new google.maps.Map( this.mapElement.nativeElement, mapOptions );
 	}
 
-	phoneCall() {
+	private phoneCall() {
 		window.open( 'tel:'+this.user.phone, '_system' );
 	}
 
-	mailTo() {
+	private mailTo() {
 		window.open( 'mailto:'+this.user.email, '_system' );
 	}
 
-	openUrl() {
+	private openUrl() {
 		window.open( 'https://'+this.user.website, '_system' );
 	}
 
