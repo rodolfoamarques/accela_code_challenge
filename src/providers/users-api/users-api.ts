@@ -40,7 +40,7 @@ export class User {
 @Injectable()
 export class UsersApiProvider {
 
-	private apiURL: string = 'https://jsonplaceholder.typicode.com';
+	public apiURL: string = 'https://jsonplaceholder.typicode.com';
 
 	constructor( public http: HttpClient ) {}
 
